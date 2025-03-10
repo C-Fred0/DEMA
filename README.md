@@ -20,6 +20,7 @@ Our interest is detecting if an elderly person has fallen and requires assistanc
 
 
 (The web page is not included, but the labels for each prediction are in managed_components).
+
 In order to aquire data for the training, there are 2 buttons, one for aquiring data and another to send the data via MQTT protocol. In a web server, the 90 values (that consist of a sample) are sent to a PC and the values are organized (columns of X, Y and Z values) with a pythonscript and saved in a .csv file for each category. A total of 160 samples per category were used for the training.
 
 ## How to use example
