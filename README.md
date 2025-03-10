@@ -1,14 +1,15 @@
-| Supported Targets | ESP32 | ESP32-C2 | ESP32-C3 | ESP32-C5 | ESP32-C6 | ESP32-H2 | ESP32-P4 | ESP32-S2 | ESP32-S3 |
-| ----------------- | ----- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
+## DEMA
+DEMA (Donde Esta Mi Abuelito [Where Is My Grandad]) is a project for the ESP32 that involves Machine Learning to indicate the status of a person that can wear a gadget on their belt.
 
-# _Sample project_
+The model is trained in Pythin using TensorFlow and adapted to TensorFlowMicro. It is adapted to predict if a person is:
 
-(See the README.md file in the upper level 'examples' directory for more information about examples.)
-
-This is the simplest buildable example. The example is used by command `idf.py create-project`
-that copies the project to user specified path and set it's name. For more information follow the [docs page](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/build-system.html#start-a-new-project)
-
-
+Standing
+Sitting
+Laying down
+Walking
+Switching positions
+Falling* Our interest is detecting if an elderly person has fallen and requires assistance. So with the MPU6050 it reads a string of 3 values [acceleration of the X,Y and Z axis] each 100 miliseconds for 3 seconds. Then, the ESP32 makes a prediction and if it guesses that the person has fallen, it will send an SMS [using the SIM7600] to a saved number with the location of the user [with the NEO-M8] on Google Maps.
+In order to aquire data for the training, there are 2 buttons, one for aquiring data and another to send the data via MQTT protocol. In a web server, the 90 values (that consist of a sample) are sent to a PC and the values are organized (columns of X, Y and Z values) with a pythonscript and saved in a .csv file for each category. A total of 160 samples per category were used for the training.
 
 ## How to use example
 We encourage the users to use the example as a template for the new projects.
@@ -33,3 +34,4 @@ Below is short explanation of remaining files in the project folder.
 ```
 Additionally, the sample project contains Makefile and component.mk files, used for the legacy Make based build system. 
 They are not used or needed when building with CMake and idf.py.
+
