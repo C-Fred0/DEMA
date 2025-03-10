@@ -14,10 +14,12 @@ It is adapted to predict if a person is:
 
 Our interest is detecting if an elderly person has fallen and requires assistance. So with the MPU6050 it reads a string of 3 values [acceleration of the X,Y and Z axis] each 100 miliseconds for 3 seconds. Then, the ESP32 makes a prediction and if it guesses that the person has fallen, it will send an SMS [using the SIM7600] to a saved number with the location of the user [with the NEO-M8] on Google Maps.
 
-![image](https://github.com/user-attachments/assets/e7ec5f1a-2052-45a0-9b82-bf2bfabd0758)
-![image](https://github.com/user-attachments/assets/1c497f22-1c77-4cdf-abea-f89e27f0b11d)
+![image](https://github.com/user-attachments/assets/80ff7b5d-ecc6-4817-ba54-af0502caf46d)
 
-(Disclaimer, the web page is not included, but the labels on the status are in managed_components).
+![image](https://github.com/user-attachments/assets/b465546e-93c0-43e0-8f18-53f82fd8955b)
+
+
+(The web page is not included, but the labels for each prediction are in managed_components).
 In order to aquire data for the training, there are 2 buttons, one for aquiring data and another to send the data via MQTT protocol. In a web server, the 90 values (that consist of a sample) are sent to a PC and the values are organized (columns of X, Y and Z values) with a pythonscript and saved in a .csv file for each category. A total of 160 samples per category were used for the training.
 
 ## How to use example
